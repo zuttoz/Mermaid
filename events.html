@@ -79,293 +79,309 @@
     </div>
   </section>
 
-  <!-- ========== EVENT DETAILS ========== -->
+  <!-- ========== ALL EVENTS ========== -->
   <section class="section section-alt">
     <div class="container">
       <div class="section-header fade-in">
-        <h2>Event Details</h2>
-        <div class="callout callout-highlight" style="max-width: 600px; margin: 1rem auto 0;">
-          <h3>Check the schedule above for <span style="color: var(--coral);">event times!</span></h3>
-        </div>
+        <h2>Festival Events</h2>
+        <p>Everything happening at this year's 80th Annual Mermaid Festival.</p>
       </div>
 
-      <div class="events-list stagger-children">
+      <!-- Search -->
+      <div class="event-search-wrap fade-in">
+        <div class="event-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="eventSearch" placeholder="Search events..." autocomplete="off">
+        </div>
+        <div class="event-search-count" id="eventSearchCount"></div>
+      </div>
+
+      <div class="featured-events stagger-children" id="eventsList">
 
         <!-- Dinosaur Takeover -->
-        <div class="event-item fade-in">
-          <div class="event-item-image">
+        <div class="featured-event fade-in" data-event-name="Dinosaur Takeover">
+          <div class="featured-event-image" data-gallery="images/events/dinosaur-takeover/placeholder.jpg">
             <div class="img-wrapper">
-              <img src="images/events/dinosaur-takeover.jpg" alt="Dinosaur Takeover">
+              <img src="images/events/dinosaur-takeover/placeholder.jpg" alt="Dinosaur Takeover">
               <div class="img-placeholder"><span>Dinosaur Takeover</span></div>
             </div>
+            <div class="gallery-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Photos</div>
           </div>
-          <div class="event-item-info">
+          <div class="featured-event-content">
+            <div class="event-badge free">Free</div>
             <h3>Dinosaur Takeover</h3>
-            <p>An interactive dinosaur experience featuring up to 8 life-sized dinosaurs, including a 50-foot brachiosaurus. Watch a baby dinosaur hatch, see dinosaurs get "trained," and kids can play hide-and-seek with a 12-foot velociraptor. Daily free shows and exhibits. <a href="https://dinosaurtakeover.com/" target="_blank" rel="noopener">Learn more</a></p>
+            <p>An interactive dinosaur experience featuring up to 8 life-sized dinosaurs, including a 50-foot brachiosaurus. Watch a baby dinosaur hatch, see dinosaurs get "trained," and kids can play hide-and-seek with a 12-foot velociraptor. Daily free shows and exhibits.</p>
+            <p><a href="https://dinosaurtakeover.com/" target="_blank" rel="noopener">Learn more &rarr;</a></p>
           </div>
-          <div class="event-badge free">Free</div>
-        </div>
-
-        <!-- Bike Giveaways -->
-        <div class="event-item fade-in">
-          <div class="event-item-image">
-            <div class="img-wrapper">
-              <img src="images/events/bike-giveaways.jpg" alt="Bike Giveaways">
-              <div class="img-placeholder"><span>Bike Giveaways</span></div>
-            </div>
-          </div>
-          <div class="event-item-info">
-            <h3>Bike Giveaways</h3>
-            <p>One girl's bike and one boy's bike given away! Free tickets are handed out after the Cutie Parade at the festival grounds office. Winners are drawn at 8 p.m. at the stage area.</p>
-          </div>
-          <div class="event-badge free">Free</div>
-        </div>
-
-        <!-- Carnival Rides -->
-        <div class="event-item fade-in">
-          <div class="event-item-image">
-            <div class="img-wrapper">
-              <img src="images/events/carnival-rides.jpg" alt="Carnival Rides">
-              <div class="img-placeholder"><span>Carnival Rides</span></div>
-            </div>
-          </div>
-          <div class="event-item-info">
-            <h3>Carnival Rides</h3>
-            <p>A traveling carnival midway with rides for kids and adults. Buy individual ride tickets or grab a wristband for unlimited rides all day.</p>
-          </div>
-          <div class="event-badge paid">Paid</div>
-        </div>
-
-        <!-- Coin Hunt -->
-        <div class="event-item fade-in">
-          <div class="event-item-image">
-            <div class="img-wrapper">
-              <img src="images/events/coin-hunt.jpg" alt="Coin Hunt">
-              <div class="img-placeholder"><span>Coin Hunt</span></div>
-            </div>
-          </div>
-          <div class="event-item-info">
-            <h3>Lake City Bank Coin Hunt</h3>
-            <p>Proudly sponsored by Lake City Bank. $50 in coins scattered in the sand lot by the stage for each age group (ages 3-5 and 6-9). Kids keep whatever they find! Quarters, dimes, and more hidden throughout.</p>
-          </div>
-          <div class="event-badge free">Free</div>
-        </div>
-
-        <!-- Cutie Parade -->
-        <div class="event-item fade-in">
-          <div class="event-item-image">
-            <div class="img-wrapper">
-              <img src="images/events/cutie-parade.jpg" alt="Cutie Parade">
-              <div class="img-placeholder"><span>Cutie Parade</span></div>
-            </div>
-          </div>
-          <div class="event-item-info">
-            <h3>Cutie Parade</h3>
-            <ul class="event-details-list">
-              <li>Open to children under 14</li>
-              <li>Three categories: Walking, Hand-Drawn, or Motorized units</li>
-              <li>No entry fee</li>
-              <li>Line-up/check-in at 5:00 p.m. at North Webster Community Church, must be checked in by 6:15 p.m.</li>
-              <li>Parade begins at <strong>6:30 p.m.</strong></li>
-              <li>Educational bonds up to <strong>$5,000</strong> per category (Shoop Sports and Youth Foundation)</li>
-              <li>Application deadline applies, no late registrations accepted</li>
-            </ul>
-            <p><a href="forms/2026 cutie application Fillable.pdf" target="_blank" rel="noopener">Download application for full rules</a></p>
-          </div>
-          <div class="event-badge free">Free</div>
-        </div>
-
-        <!-- Cutie King and Queen Pageant -->
-        <div class="event-item fade-in">
-          <div class="event-item-image">
-            <div class="img-wrapper">
-              <img src="images/events/cutie-pageant.jpg" alt="Cutie King & Queen Pageant">
-              <div class="img-placeholder"><span>Cutie Pageant</span></div>
-            </div>
-          </div>
-          <div class="event-item-info">
-            <h3>Cutie King &amp; Queen Pageant</h3>
-            <ul class="event-details-list">
-              <li>Open to children ages 5-7</li>
-              <li>Held at North Webster Community Center</li>
-              <li>Registration 6:15 - 6:45 p.m., no late check-in allowed</li>
-              <li>Pageant begins promptly at <strong>7:00 p.m.</strong></li>
-              <li>Educational bonds up to <strong>$5,000</strong> (Shoop Sports and Youth Foundation)</li>
-              <li><strong>Must participate in Cutie Parade to be eligible</strong></li>
-              <li>Application deadline applies, no late registrations accepted</li>
-            </ul>
-            <p><a href="forms/2026 cutie application Fillable.pdf" target="_blank" rel="noopener">Download application for full rules</a></p>
-          </div>
-          <div class="event-badge free">Free</div>
-        </div>
-
-        <!-- Demolition Derby -->
-        <div class="event-item fade-in">
-          <div class="event-item-image">
-            <div class="img-wrapper">
-              <img src="images/events/demolition-derby.jpg" alt="Demolition Derby">
-              <div class="img-placeholder"><span>Demolition Derby</span></div>
-            </div>
-          </div>
-          <div class="event-item-info">
-            <h3>Demolition Derby</h3>
-            <p>Drivers compete in vehicle demolition heats on the festival grounds. Saturday at <strong>7:00 p.m.</strong> Free for spectators, drivers pay an entry fee per car.</p>
-          </div>
-          <div class="event-badge free">Free to Watch</div>
         </div>
 
         <!-- Festival Parade -->
-        <div class="event-item fade-in">
-          <div class="event-item-image">
+        <div class="featured-event fade-in" data-event-name="Festival Parade">
+          <div class="featured-event-image" data-gallery="images/events/festival-parade/2024 - North Webster Mermaid Festival & Main Parade (6-22-24)_7278.jpg,images/events/festival-parade/342.JPEG">
             <div class="img-wrapper">
-              <img src="images/events/festival-parade.jpg" alt="Festival Parade">
+              <img src="images/events/festival-parade/2024 - North Webster Mermaid Festival & Main Parade (6-22-24)_7278.jpg" alt="Festival Parade">
               <div class="img-placeholder"><span>Festival Parade</span></div>
             </div>
+            <div class="gallery-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> 2 Photos</div>
           </div>
-          <div class="event-item-info">
+          <div class="featured-event-content">
+            <div class="event-badge free">Free</div>
             <h3>Festival Parade</h3>
-            <p>The main festival parade through downtown North Webster on Main Street starting <strong>Saturday at 4:00 p.m.</strong> Features floats, marching bands, and community groups celebrating this year's theme.</p>
+            <p>The main festival parade through downtown North Webster on Main Street. Features floats, marching bands, and community groups celebrating this year's theme.</p>
+            <p><strong>Saturday at 4:00 p.m.</strong></p>
           </div>
-          <div class="event-badge free">Free</div>
         </div>
 
-        <!-- Strawberry Festival -->
-        <div class="event-item fade-in">
-          <div class="event-item-image">
+        <!-- Demolition Derby -->
+        <div class="featured-event fade-in" data-event-name="Demolition Derby">
+          <div class="featured-event-image" data-gallery="images/events/demolition-derby/placeholder.jpg">
             <div class="img-wrapper">
-              <img src="images/events/strawberry-festival.jpg" alt="Strawberry Festival">
-              <div class="img-placeholder"><span>Strawberry Festival</span></div>
+              <img src="images/events/demolition-derby/placeholder.jpg" alt="Demolition Derby">
+              <div class="img-placeholder"><span>Demolition Derby</span></div>
             </div>
+            <div class="gallery-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Photos</div>
           </div>
-          <div class="event-item-info">
-            <h3>Strawberry Festival</h3>
-            <p>Hosted by North Webster United Methodist Church on the festival grounds. Strawberry ice cream, pies, shortcake, and more. <strong>4:00 - 7:30 p.m.</strong></p>
+          <div class="featured-event-content">
+            <div class="event-badge free">Free to Watch</div>
+            <h3>Demolition Derby</h3>
+            <p>Drivers compete in vehicle demolition heats on the festival grounds. Free for spectators, drivers pay an entry fee per car.</p>
+            <p><strong>Saturday at 7:00 p.m.</strong></p>
           </div>
-          <div class="event-badge paid">Paid</div>
-        </div>
-
-        <!-- Food -->
-        <div class="event-item fade-in">
-          <div class="event-item-image">
-            <div class="img-wrapper">
-              <img src="images/events/food.jpg" alt="Festival Food">
-              <div class="img-placeholder"><span>Festival Food</span></div>
-            </div>
-          </div>
-          <div class="event-item-info">
-            <h3>Food</h3>
-            <p>Wawasee Band pork burgers at the Lions Club food stand, Kiwanis ice cream, plus a variety of local food vendors. Vendors change each year so there's always something new to try!</p>
-          </div>
-          <div class="event-badge paid">Paid</div>
-        </div>
-
-        <!-- Karaoke -->
-        <div class="event-item fade-in">
-          <div class="event-item-image">
-            <div class="img-wrapper">
-              <img src="images/events/karaoke.jpg" alt="Karaoke">
-              <div class="img-placeholder"><span>Karaoke</span></div>
-            </div>
-          </div>
-          <div class="event-item-info">
-            <h3>Karaoke</h3>
-            <p>Take the stage and show off your singing skills! Karaoke entertainment on the festival stage. <strong>Saturday starting at 6:00 p.m.</strong></p>
-          </div>
-          <div class="event-badge free">Free</div>
-        </div>
-
-        <!-- Laser Tag -->
-        <div class="event-item fade-in">
-          <div class="event-item-image">
-            <div class="img-wrapper">
-              <img src="images/events/laser-tag.jpg" alt="Laser Tag">
-              <div class="img-placeholder"><span>Laser Tag</span></div>
-            </div>
-          </div>
-          <div class="event-item-info">
-            <h3>Laser Tag</h3>
-            <p>Tactical laser tag set up on the festival grounds. Fun for kids and adults.</p>
-          </div>
-          <div class="event-badge free">Free</div>
-        </div>
-
-        <!-- Local Bands -->
-        <div class="event-item fade-in">
-          <div class="event-item-image">
-            <div class="img-wrapper">
-              <img src="images/events/local-bands.jpg" alt="Local Bands">
-              <div class="img-placeholder"><span>Local Bands</span></div>
-            </div>
-          </div>
-          <div class="event-item-info">
-            <h3>Local Bands</h3>
-            <p>Live music performances on Merlin's Stage throughout the festival. Local and regional acts perform evening shows. Check the schedule above for days, times, and bands.</p>
-          </div>
-          <div class="event-badge free">Free</div>
-        </div>
-
-        <!-- Power Wheels Race -->
-        <div class="event-item fade-in">
-          <div class="event-item-image">
-            <div class="img-wrapper">
-              <img src="images/events/power-wheels.jpg" alt="Power Wheels Race">
-              <div class="img-placeholder"><span>Power Wheels Race</span></div>
-            </div>
-          </div>
-          <div class="event-item-info">
-            <h3>Power Wheels Race</h3>
-            <p>Open to children up to 8 years old. Power Wheels are provided, but participants may bring their own if desired. <strong>Saturday</strong>, sign-up at 11:30 a.m., race starts at noon. Each age group winner receives a prize, and all participants receive trophies.</p>
-          </div>
-          <div class="event-badge free">Free</div>
         </div>
 
         <!-- Queen of Lakes Pageant -->
-        <div class="event-item fade-in">
-          <div class="event-item-image">
+        <div class="featured-event fade-in" data-event-name="Queen of Lakes Pageant">
+          <div class="featured-event-image" data-gallery="images/events/queen-pageant/placeholder.jpg">
             <div class="img-wrapper">
-              <img src="images/events/queen-of-lakes.jpg" alt="Queen of Lakes Pageant">
+              <img src="images/events/queen-pageant/placeholder.jpg" alt="Queen of Lakes Pageant">
               <div class="img-placeholder"><span>Queen of Lakes Pageant</span></div>
             </div>
+            <div class="gallery-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Photos</div>
           </div>
-          <div class="event-item-info">
+          <div class="featured-event-content">
+            <div class="event-badge free">Free</div>
             <h3>Queen of Lakes Pageant</h3>
-            <p>A scholarship pageant held at the North Webster Community Center. <strong>Saturday at 7:00 p.m.</strong> Young women compete for the Queen of the Lakes title and scholarship money funded by the Shoop Sports and Youth Foundation.</p>
-            <p><a href="forms/2026 Queens Application Fillable.pdf" target="_blank" rel="noopener">Download application</a></p>
+            <p>A scholarship pageant held at the North Webster Community Center. Young women compete for the Queen of the Lakes title and scholarship money funded by the Shoop Sports and Youth Foundation.</p>
+            <p><strong>Saturday at 7:00 p.m.</strong> &bull; <a href="forms/2026 Queens Application Fillable.pdf" target="_blank" rel="noopener">Download application</a></p>
           </div>
-          <div class="event-badge free">Free</div>
         </div>
 
         <!-- RE/MAX Hot Air Balloon Ride -->
-        <div class="event-item fade-in">
-          <div class="event-item-image">
+        <div class="featured-event fade-in" data-event-name="RE/MAX Hot Air Balloon Ride">
+          <div class="featured-event-image" data-gallery="images/events/hot-air-balloon/placeholder.jpg">
             <div class="img-wrapper">
-              <img src="images/events/hot-air-balloon.jpg" alt="RE/MAX Hot Air Balloon Ride">
+              <img src="images/events/hot-air-balloon/placeholder.jpg" alt="RE/MAX Hot Air Balloon Ride">
               <div class="img-placeholder"><span>Hot Air Balloon Ride</span></div>
             </div>
+            <div class="gallery-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Photos</div>
           </div>
-          <div class="event-item-info">
+          <div class="featured-event-content">
+            <div class="event-badge free">Free</div>
             <h3>RE/MAX Hot Air Balloon Ride</h3>
             <p>Take a tethered hot air balloon ride on the festival grounds, courtesy of RE/MAX. Weather permitting.</p>
           </div>
-          <div class="event-badge free">Free</div>
+        </div>
+
+        <!-- Cutie Parade -->
+        <div class="featured-event fade-in" data-event-name="Cutie Parade">
+          <div class="featured-event-image" data-gallery="images/events/cutie-parade/placeholder.jpg">
+            <div class="img-wrapper">
+              <img src="images/events/cutie-parade/placeholder.jpg" alt="Cutie Parade">
+              <div class="img-placeholder"><span>Cutie Parade</span></div>
+            </div>
+            <div class="gallery-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Photos</div>
+          </div>
+          <div class="featured-event-content">
+            <div class="event-badge free">Free</div>
+            <h3>Cutie Parade</h3>
+            <p>Open to children under 14. Three categories: Walking, Hand-Drawn, or Motorized units. Educational bonds up to <strong>$5,000</strong> per category. Line-up at 5:00 p.m., parade begins at <strong>6:30 p.m.</strong></p>
+            <p><a href="forms/2026 cutie application Fillable.pdf" target="_blank" rel="noopener">Download application &rarr;</a></p>
+          </div>
+        </div>
+
+        <!-- Cutie King & Queen Pageant -->
+        <div class="featured-event fade-in" data-event-name="Cutie King Queen Pageant">
+          <div class="featured-event-image" data-gallery="images/events/cutie-pageant/placeholder.jpg">
+            <div class="img-wrapper">
+              <img src="images/events/cutie-pageant/placeholder.jpg" alt="Cutie King &amp; Queen Pageant">
+              <div class="img-placeholder"><span>Cutie Pageant</span></div>
+            </div>
+            <div class="gallery-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Photos</div>
+          </div>
+          <div class="featured-event-content">
+            <div class="event-badge free">Free</div>
+            <h3>Cutie King &amp; Queen Pageant</h3>
+            <p>Ages 5-7 at the North Webster Community Center. Educational bonds up to <strong>$5,000</strong>. Must participate in Cutie Parade to be eligible. Registration 6:15 - 6:45 p.m., pageant at <strong>7:00 p.m.</strong></p>
+            <p><a href="forms/2026 cutie application Fillable.pdf" target="_blank" rel="noopener">Download application &rarr;</a></p>
+          </div>
+        </div>
+
+        <!-- Carnival Rides -->
+        <div class="featured-event fade-in" data-event-name="Carnival Rides">
+          <div class="featured-event-image" data-gallery="images/events/carnival-rides/placeholder.jpg">
+            <div class="img-wrapper">
+              <img src="images/events/carnival-rides/placeholder.jpg" alt="Carnival Rides">
+              <div class="img-placeholder"><span>Carnival Rides</span></div>
+            </div>
+            <div class="gallery-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Photos</div>
+          </div>
+          <div class="featured-event-content">
+            <div class="event-badge paid">Paid</div>
+            <h3>Carnival Rides</h3>
+            <p>A traveling carnival midway with rides for kids and adults. Buy individual ride tickets or grab a wristband for unlimited rides all day.</p>
+          </div>
         </div>
 
         <!-- Tournament of Champions -->
-        <div class="event-item fade-in">
-          <div class="event-item-image">
+        <div class="featured-event fade-in" data-event-name="Tournament of Champions">
+          <div class="featured-event-image" data-gallery="images/events/tourament-of-champions/placeholder.jpg">
             <div class="img-wrapper">
-              <img src="images/events/tournament-of-champions.jpg" alt="Tournament of Champions">
+              <img src="images/events/tourament-of-champions/placeholder.jpg" alt="Tournament of Champions">
               <div class="img-placeholder"><span>Tournament of Champions</span></div>
             </div>
+            <div class="gallery-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Photos</div>
           </div>
-          <div class="event-item-info">
+          <div class="featured-event-content">
+            <div class="event-badge free">Free</div>
             <h3>Tournament of Champions</h3>
-            <p>The Shoop Sports and Youth Foundation Tournament of Champions at North Webster Elementary School. A ten-event athletic skills competition where area youth athletes compete for college scholarship money.</p>
-            <p><a href="forms/2024 Tournament of Champions.pdf" target="_blank" rel="noopener">Download application</a> | <a href="https://docs.google.com/forms/d/e/1FAIpQLScvO2YFfIBIzNC6Ep0Nw2OKiLyXQuTWLXhSPQeeHd3q0HrXsA/viewform" target="_blank" rel="noopener">Apply online</a></p>
+            <p>The Shoop Sports and Youth Foundation Tournament of Champions at North Webster Elementary. A ten-event athletic skills competition where area youth compete for college scholarship money.</p>
+            <p><a href="forms/2024 Tournament of Champions.pdf" target="_blank" rel="noopener">Application</a> | <a href="https://docs.google.com/forms/d/e/1FAIpQLScvO2YFfIBIzNC6Ep0Nw2OKiLyXQuTWLXhSPQeeHd3q0HrXsA/viewform" target="_blank" rel="noopener">Apply online</a></p>
           </div>
-          <div class="event-badge free">Free</div>
         </div>
 
+        <!-- Lake City Bank Coin Hunt -->
+        <div class="featured-event fade-in" data-event-name="Lake City Bank Coin Hunt">
+          <div class="featured-event-image" data-gallery="images/events/coin-hunt/placeholder.jpg">
+            <div class="img-wrapper">
+              <img src="images/events/coin-hunt/placeholder.jpg" alt="Coin Hunt">
+              <div class="img-placeholder"><span>Coin Hunt</span></div>
+            </div>
+            <div class="gallery-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Photos</div>
+          </div>
+          <div class="featured-event-content">
+            <div class="event-badge free">Free</div>
+            <h3>Lake City Bank Coin Hunt</h3>
+            <p>Proudly sponsored by Lake City Bank. $50 in coins scattered in the sand lot by the stage for each age group (ages 3-5 and 6-9). Kids keep whatever they find!</p>
+          </div>
+        </div>
+
+        <!-- Power Wheels Race -->
+        <div class="featured-event fade-in" data-event-name="Power Wheels Race">
+          <div class="featured-event-image" data-gallery="images/events/power-wheel-race/placeholder.jpg">
+            <div class="img-wrapper">
+              <img src="images/events/power-wheel-race/placeholder.jpg" alt="Power Wheels Race">
+              <div class="img-placeholder"><span>Power Wheels Race</span></div>
+            </div>
+            <div class="gallery-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Photos</div>
+          </div>
+          <div class="featured-event-content">
+            <div class="event-badge free">Free</div>
+            <h3>Power Wheels Race</h3>
+            <p>Open to children up to 8 years old. Power Wheels are provided, but participants may bring their own. Sign-up at 11:30 a.m., race at noon <strong>Saturday</strong>. All participants receive trophies.</p>
+          </div>
+        </div>
+
+        <!-- Live Music -->
+        <div class="featured-event fade-in" data-event-name="Live Music Local Bands">
+          <div class="featured-event-image" data-gallery="images/events/bands/placeholder.jpg">
+            <div class="img-wrapper">
+              <img src="images/events/bands/placeholder.jpg" alt="Live Music">
+              <div class="img-placeholder"><span>Live Music</span></div>
+            </div>
+            <div class="gallery-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Photos</div>
+          </div>
+          <div class="featured-event-content">
+            <div class="event-badge free">Free</div>
+            <h3>Live Music</h3>
+            <p>Local and regional acts perform on Merlin's Stage throughout the festival. Check the schedule above for days, times, and bands.</p>
+          </div>
+        </div>
+
+        <!-- Laser Tag -->
+        <div class="featured-event fade-in" data-event-name="Laser Tag">
+          <div class="featured-event-image" data-gallery="images/events/laser-tag/placeholder.jpg">
+            <div class="img-wrapper">
+              <img src="images/events/laser-tag/placeholder.jpg" alt="Laser Tag">
+              <div class="img-placeholder"><span>Laser Tag</span></div>
+            </div>
+            <div class="gallery-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Photos</div>
+          </div>
+          <div class="featured-event-content">
+            <div class="event-badge free">Free</div>
+            <h3>Laser Tag</h3>
+            <p>Tactical laser tag set up on the festival grounds. Fun for kids and adults alike.</p>
+          </div>
+        </div>
+
+        <!-- Karaoke -->
+        <div class="featured-event fade-in" data-event-name="Karaoke">
+          <div class="featured-event-image" data-gallery="images/events/karaoke/placeholder.jpg">
+            <div class="img-wrapper">
+              <img src="images/events/karaoke/placeholder.jpg" alt="Karaoke">
+              <div class="img-placeholder"><span>Karaoke</span></div>
+            </div>
+            <div class="gallery-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Photos</div>
+          </div>
+          <div class="featured-event-content">
+            <div class="event-badge free">Free</div>
+            <h3>Karaoke</h3>
+            <p>Take the stage and show off your singing skills! Karaoke entertainment on the festival stage. <strong>Saturday starting at 6:00 p.m.</strong></p>
+          </div>
+        </div>
+
+        <!-- Bike Giveaways -->
+        <div class="featured-event fade-in" data-event-name="Bike Giveaways">
+          <div class="featured-event-image" data-gallery="images/events/bike-giveway/placeholder.jpg">
+            <div class="img-wrapper">
+              <img src="images/events/bike-giveway/placeholder.jpg" alt="Bike Giveaways">
+              <div class="img-placeholder"><span>Bike Giveaways</span></div>
+            </div>
+            <div class="gallery-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Photos</div>
+          </div>
+          <div class="featured-event-content">
+            <div class="event-badge free">Free</div>
+            <h3>Bike Giveaways</h3>
+            <p>One girl's bike and one boy's bike given away! Free tickets are handed out after the Cutie Parade at the festival grounds office. Winners are drawn at 8 p.m. at the stage area.</p>
+          </div>
+        </div>
+
+        <!-- Strawberry Festival -->
+        <div class="featured-event fade-in" data-event-name="Strawberry Festival">
+          <div class="featured-event-image" data-gallery="images/events/strawberry-festival/placeholder.jpg">
+            <div class="img-wrapper">
+              <img src="images/events/strawberry-festival/placeholder.jpg" alt="Strawberry Festival">
+              <div class="img-placeholder"><span>Strawberry Festival</span></div>
+            </div>
+            <div class="gallery-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Photos</div>
+          </div>
+          <div class="featured-event-content">
+            <div class="event-badge paid">Paid</div>
+            <h3>Strawberry Festival</h3>
+            <p>Hosted by North Webster United Methodist Church on the festival grounds. Strawberry ice cream, pies, shortcake, and more. <strong>4:00 - 7:30 p.m.</strong></p>
+          </div>
+        </div>
+
+        <!-- Festival Food -->
+        <div class="featured-event fade-in" data-event-name="Festival Food">
+          <div class="featured-event-image" data-gallery="images/events/food/placeholder.jpg">
+            <div class="img-wrapper">
+              <img src="images/events/food/placeholder.jpg" alt="Festival Food">
+              <div class="img-placeholder"><span>Festival Food</span></div>
+            </div>
+            <div class="gallery-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Photos</div>
+          </div>
+          <div class="featured-event-content">
+            <div class="event-badge paid">Paid</div>
+            <h3>Festival Food</h3>
+            <p>Wawasee Band pork burgers at the Lions Club food stand, Kiwanis ice cream, plus a variety of local food vendors. Vendors change each year so there's always something new to try!</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- No results message -->
+      <div class="event-no-results" id="eventNoResults" style="display: none;">
+        <p>No events found matching your search. Try a different term!</p>
       </div>
     </div>
   </section>
@@ -424,6 +440,190 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
+  <!-- Lightbox -->
+  <div class="lightbox-overlay" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose">&times;</button>
+      <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</button>
+      <img src="" alt="Gallery image" id="lightboxImg">
+      <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</button>
+      <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
+  <script>
+    // Lightbox gallery
+    (function() {
+      const overlay = document.getElementById('lightbox');
+      const img = document.getElementById('lightboxImg');
+      const counter = document.getElementById('lightboxCounter');
+      const prevBtn = document.getElementById('lightboxPrev');
+      const nextBtn = document.getElementById('lightboxNext');
+      let images = [];
+      let current = 0;
+
+      function open(srcs, index) {
+        images = srcs;
+        current = index || 0;
+        show();
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        prevBtn.style.display = images.length > 1 ? '' : 'none';
+        nextBtn.style.display = images.length > 1 ? '' : 'none';
+        counter.style.display = images.length > 1 ? '' : 'none';
+      }
+
+      function show() {
+        img.src = images[current];
+        counter.textContent = (current + 1) + ' / ' + images.length;
+      }
+
+      function close() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      document.getElementById('lightboxClose').addEventListener('click', close);
+      overlay.addEventListener('click', function(e) { if (e.target === overlay) close(); });
+      prevBtn.addEventListener('click', function() { current = (current - 1 + images.length) % images.length; show(); });
+      nextBtn.addEventListener('click', function() { current = (current + 1) % images.length; show(); });
+      document.addEventListener('keydown', function(e) {
+        if (!overlay.classList.contains('active')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') { current = (current - 1 + images.length) % images.length; show(); }
+        if (e.key === 'ArrowRight') { current = (current + 1) % images.length; show(); }
+      });
+
+      // Attach to all gallery triggers, build indicators, and hover slideshow
+      document.querySelectorAll('[data-gallery]').forEach(function(el) {
+        var srcs = el.getAttribute('data-gallery').split(',');
+        var indicator = el.querySelector('.gallery-indicator');
+        var imgEl = el.querySelector('.img-wrapper img');
+        var hoverIndex = 0;
+        var hoverInterval = null;
+
+        // Build indicator content
+        if (indicator) {
+          var isMultiple = srcs.length > 1;
+          if (isMultiple) indicator.classList.add('has-multiple');
+
+          // Build label + dots
+          var label = srcs.length > 1
+            ? '<span class="gallery-indicator-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> ' + srcs.length + ' Photos &mdash; Click to explore</span>'
+            : '<span class="gallery-indicator-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Photo</span>';
+
+          var dots = '';
+          if (srcs.length > 1) {
+            dots = '<span class="gallery-dots">';
+            for (var i = 0; i < srcs.length; i++) {
+              dots += '<span class="gallery-dot' + (i === 0 ? ' active' : '') + '"></span>';
+            }
+            dots += '</span>';
+          }
+
+          indicator.innerHTML = label + dots;
+        }
+
+        // Hover slideshow for multi-image galleries
+        if (srcs.length > 1 && imgEl) {
+          // Preload all images
+          srcs.forEach(function(s) { var i = new Image(); i.src = s; });
+
+          // Create a second img for crossfade
+          var imgEl2 = document.createElement('img');
+          imgEl2.alt = imgEl.alt;
+          imgEl2.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.6s ease;z-index:1;';
+          imgEl.parentNode.style.position = 'relative';
+          imgEl.parentNode.appendChild(imgEl2);
+
+          var showingSecond = false;
+
+          el.addEventListener('mouseenter', function() {
+            hoverIndex = 0;
+            hoverInterval = setInterval(function() {
+              hoverIndex = (hoverIndex + 1) % srcs.length;
+              if (showingSecond) {
+                imgEl.src = srcs[hoverIndex];
+                imgEl2.style.opacity = '0';
+              } else {
+                imgEl2.src = srcs[hoverIndex];
+                imgEl2.style.opacity = '1';
+              }
+              showingSecond = !showingSecond;
+              // Update dots
+              var allDots = el.querySelectorAll('.gallery-dot');
+              allDots.forEach(function(d, idx) {
+                d.classList.toggle('active', idx === hoverIndex);
+              });
+            }, 2500);
+          });
+
+          el.addEventListener('mouseleave', function() {
+            clearInterval(hoverInterval);
+            hoverInterval = null;
+            hoverIndex = 0;
+            showingSecond = false;
+            imgEl.src = srcs[0];
+            imgEl2.style.opacity = '0';
+            var allDots = el.querySelectorAll('.gallery-dot');
+            allDots.forEach(function(d, idx) {
+              d.classList.toggle('active', idx === 0);
+            });
+          });
+        }
+
+        // Click to open lightbox
+        el.addEventListener('click', function() {
+          open(srcs, 0);
+        });
+      });
+    })();
+
+    // Event search + alternating layout
+    (function() {
+      var input = document.getElementById('eventSearch');
+      var list = document.getElementById('eventsList');
+      var countEl = document.getElementById('eventSearchCount');
+      var noResults = document.getElementById('eventNoResults');
+      var events = list.querySelectorAll('.featured-event');
+
+      function updateAlternating() {
+        var idx = 0;
+        events.forEach(function(ev) {
+          if (!ev.classList.contains('hidden')) {
+            ev.classList.toggle('flip', idx % 2 === 1);
+            idx++;
+          }
+        });
+      }
+
+      // Apply on load
+      updateAlternating();
+
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase().trim();
+        var visible = 0;
+
+        events.forEach(function(ev) {
+          var name = ev.getAttribute('data-event-name').toLowerCase();
+          var text = ev.textContent.toLowerCase();
+          var match = !q || name.includes(q) || text.includes(q);
+          ev.classList.toggle('hidden', !match);
+          if (match) visible++;
+        });
+
+        updateAlternating();
+
+        if (q) {
+          countEl.textContent = visible + ' event' + (visible !== 1 ? 's' : '') + ' found';
+          noResults.style.display = visible === 0 ? '' : 'none';
+        } else {
+          countEl.textContent = '';
+          noResults.style.display = 'none';
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
