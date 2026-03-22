@@ -230,13 +230,12 @@ p {
   z-index: 1000;
   height: var(--nav-height);
   transition: all var(--transition-med);
-  background: transparent;
-}
-
-.navbar.scrolled {
   background: rgba(0, 29, 61, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+
+.navbar.scrolled {
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -474,6 +473,36 @@ p {
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+/* Hero "Presented by" badge */
+.hero-presented {
+  position: absolute;
+  bottom: 2rem;
+  right: 2.5rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hero-presented-logo {
+  height: 68px;
+  width: auto;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+.hero-presented-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  text-align: left;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+.hero-presented-text strong {
+  color: var(--white);
+  font-size: 1.05rem;
 }
 
 /* Page hero (smaller, for inner pages) */
@@ -1633,6 +1662,24 @@ p {
 
   .hero {
     min-height: 90vh;
+  }
+
+  .hero-presented {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    gap: 0.5rem;
+  }
+
+  .hero-presented-logo {
+    height: 38px;
+  }
+
+  .hero-presented-text {
+    font-size: 0.7rem;
+  }
+
+  .hero-presented-text strong {
+    font-size: 0.78rem;
   }
 
   .hero-page {
