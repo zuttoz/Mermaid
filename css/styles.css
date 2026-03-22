@@ -853,6 +853,28 @@ p {
   font-size: 0.88rem;
 }
 
+.officer-list-item {
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--shadow-sm);
+  border-left: 3px solid var(--gold);
+}
+
+.officer-list-item strong {
+  display: block;
+  color: var(--navy);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.25rem;
+}
+
+.officer-list-item span {
+  color: var(--gray-700);
+  font-size: 1rem;
+}
+
 /* ---------- Gallery ---------- */
 .gallery-section {
   margin-bottom: 3rem;
@@ -866,6 +888,12 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1rem;
+}
+
+.gallery-grid.gallery-single {
+  grid-template-columns: 1fr;
+  max-width: 450px;
+  margin: 0 auto;
 }
 
 .gallery-item {
