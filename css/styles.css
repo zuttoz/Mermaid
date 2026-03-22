@@ -476,8 +476,54 @@ p {
 .hero-subtitle {
   font-size: clamp(1.2rem, 2.8vw, 1.6rem);
   color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
   font-weight: 300;
+}
+
+.hero-badges-row {
+  display: contents;
+}
+
+.hero-starburst {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-starburst.starburst-left {
+  left: 12%;
+  top: 50%;
+  transform: translateY(-50%) rotate(-12deg);
+}
+
+.hero-starburst.starburst-right {
+  right: 12%;
+  top: 50%;
+  transform: translateY(-50%) rotate(12deg);
+}
+
+.hero-starburst svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-starburst-text {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-heading);
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--white);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .hero-buttons {
