@@ -31,7 +31,7 @@
   /* Spacing */
   --section-pad: 5rem 0;
   --container-width: 1200px;
-  --nav-height: 72px;
+  --nav-height: 88px;
 
   /* Transitions */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -260,7 +260,7 @@ p {
 }
 
 .nav-logo .logo-img {
-  height: 40px;
+  height: 52px;
   width: auto;
 }
 
@@ -271,14 +271,14 @@ p {
 
 .nav-logo .logo-text {
   font-family: var(--font-heading);
-  font-size: 1.35rem;
+  font-size: 1.55rem;
   font-weight: 700;
   color: var(--white);
   letter-spacing: 0.5px;
 }
 
 .nav-logo .logo-year {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--gold);
   text-transform: uppercase;
@@ -292,9 +292,9 @@ p {
 }
 
 .nav-link {
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.25rem;
   color: rgba(255, 255, 255, 0.85);
-  font-size: 0.92rem;
+  font-size: 1.05rem;
   font-weight: 500;
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
@@ -427,7 +427,7 @@ p {
   z-index: 2;
   text-align: center;
   padding: 2rem;
-  max-width: 800px;
+  max-width: 900px;
 }
 
 .hero-badge {
@@ -437,11 +437,11 @@ p {
   border: 1px solid var(--gold);
   border-radius: var(--radius-full);
   color: var(--gold);
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   animation: shimmer 4s ease-in-out infinite;
 }
 
@@ -451,10 +451,10 @@ p {
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(3rem, 8vw, 5.5rem);
   color: var(--white);
-  margin-bottom: 1rem;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1.25rem;
+  text-shadow: 0 3px 25px rgba(0, 0, 0, 0.4);
 }
 
 .hero-title .highlight {
@@ -463,9 +463,9 @@ p {
 }
 
 .hero-subtitle {
-  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-size: clamp(1.2rem, 2.8vw, 1.6rem);
   color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   font-weight: 300;
 }
 
