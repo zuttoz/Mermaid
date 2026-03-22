@@ -881,6 +881,14 @@ a.feature-card {
   transform: scale(1.3);
 }
 
+.gallery-dot-more {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-left: 1px;
+}
+
 .featured-event-image:hover .gallery-indicator,
 .gallery-indicator.has-multiple {
   opacity: 1;
