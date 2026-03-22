@@ -980,8 +980,10 @@ p {
 /* ---------- Contact ---------- */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .contact-card {
@@ -1033,6 +1035,40 @@ p {
 }
 
 .contact-card a:hover {
+  color: var(--gold);
+}
+
+.contact-info-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-info-col h3 {
+  color: var(--navy);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.contact-info-col h3:not(:first-child) {
+  margin-top: 1.75rem;
+}
+
+.contact-info-col p {
+  color: var(--gray-700);
+  font-size: 1.05rem;
+  margin-bottom: 0;
+}
+
+.contact-info-col a {
+  color: var(--navy);
+  font-weight: 500;
+}
+
+.contact-info-col a:hover {
   color: var(--gold);
 }
 
