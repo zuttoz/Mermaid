@@ -848,6 +848,7 @@ p {
   align-items: center;
   justify-content: center;
   width: 100%;
+  min-height: 200px;
   border: 1px solid var(--gray-200);
 }
 
@@ -864,7 +865,9 @@ p {
 
 .sponsor-card img {
   max-height: 80px;
+  max-width: 100%;
   width: auto;
+  height: 80px;
   object-fit: contain;
   margin-bottom: 1rem;
 }
