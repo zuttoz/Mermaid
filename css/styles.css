@@ -140,6 +140,18 @@ p {
   margin-bottom: 3rem;
 }
 
+.section-welcome {
+  padding-top: 0;
+}
+
+.section-logo {
+  display: block;
+  height: 230px;
+  width: auto;
+  margin: -7rem auto 1rem;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
 .section-header h2 {
   margin-bottom: 0.75rem;
   position: relative;
