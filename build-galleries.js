@@ -1,80 +1,106 @@
 #!/usr/bin/env node
 /**
- * Scans images/events/ subfolders and updates data-gallery attributes
- * in events.html automatically. Also sets the first image as the card's
- * <img> src and updates the gallery indicator count.
+ * Scans image folders and updates data-gallery attributes in HTML files.
+ * Handles images/events/ subfolders in events.html and
+ * images/tradition/ in index.html.
  *
  * Usage:  node build-galleries.js
- * Run this whenever you add/remove photos from images/events/ folders.
+ * Run this whenever you add/remove photos from image folders.
  */
 
 const fs = require('fs');
 const path = require('path');
 
-const EVENTS_DIR = path.join(__dirname, 'images', 'events');
-const HTML_FILE = path.join(__dirname, 'events.html');
 const IMAGE_EXTS = ['.jpg', '.jpeg', '.png', '.webp', '.gif'];
 
-// Map folder names to data-event-name values (for matching)
-function getFolderImages(folder) {
-  const fullPath = path.join(EVENTS_DIR, folder);
-  if (!fs.statSync(fullPath).isDirectory()) return [];
-  return fs.readdirSync(fullPath)
+function getImages(dir) {
+  if (!fs.existsSync(dir) || !fs.statSync(dir).isDirectory()) return [];
+  return fs.readdirSync(dir)
     .filter(f => IMAGE_EXTS.includes(path.extname(f).toLowerCase()))
-    .map(f => `images/events/${folder}/${f}`);
+    .sort();
 }
 
-// Read HTML
-let html = fs.readFileSync(HTML_FILE, 'utf8');
+function escapeRegex(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 
-// Get all event folders
-const folders = fs.readdirSync(EVENTS_DIR)
-  .filter(f => {
-    const full = path.join(EVENTS_DIR, f);
-    return fs.statSync(full).isDirectory();
-  });
+function updateGalleries(htmlPath, baseDir, prefix) {
+  if (!fs.existsSync(htmlPath)) return 0;
+  let html = fs.readFileSync(htmlPath, 'utf8');
+  let updated = 0;
 
-let updated = 0;
+  // Check if baseDir has subfolders or is a flat image folder
+  const entries = fs.readdirSync(baseDir);
+  const hasSubfolders = entries.some(e => fs.statSync(path.join(baseDir, e)).isDirectory());
 
-for (const folder of folders) {
-  const images = getFolderImages(folder);
-  if (images.length === 0) continue;
+  if (hasSubfolders) {
+    // Process each subfolder (e.g. images/events/festival-parade/)
+    const folders = entries.filter(e => fs.statSync(path.join(baseDir, e)).isDirectory());
 
-  // Build regex to find data-gallery attributes that reference this folder
-  // Match: data-gallery="images/events/<folder>/..."
-  const galleryRegex = new RegExp(
-    `data-gallery="images/events/${folder.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^"]*"`,
-    'g'
-  );
+    for (const folder of folders) {
+      const fullPath = path.join(baseDir, folder);
+      const imgs = getImages(fullPath).map(f => `${prefix}/${folder}/${f}`);
+      if (imgs.length === 0) continue;
 
-  const newGallery = `data-gallery="${images.join(',')}"`;
+      const galleryRegex = new RegExp(
+        `data-gallery="${escapeRegex(prefix)}/${escapeRegex(folder)}[^"]*"`, 'g'
+      );
 
-  if (galleryRegex.test(html)) {
-    html = html.replace(galleryRegex, newGallery);
+      if (galleryRegex.test(html)) {
+        // Reset lastIndex after test
+        galleryRegex.lastIndex = 0;
+        html = html.replace(galleryRegex, `data-gallery="${imgs.join(',')}"`);
 
-    // Update the img src to first image in folder
-    const srcRegex = new RegExp(
-      `<img src="images/events/${folder.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^"]*"`,
-      'g'
+        const srcRegex = new RegExp(
+          `<img src="${escapeRegex(prefix)}/${escapeRegex(folder)}/[^"]*"`, 'g'
+        );
+        html = html.replace(srcRegex, `<img src="${imgs[0]}"`);
+
+        updated++;
+        console.log(`  ${folder}: ${imgs.length} image(s)`);
+      }
+    }
+  } else {
+    // Flat folder (e.g. images/tradition/)
+    const imgs = getImages(baseDir).map(f => `${prefix}/${f}`);
+    if (imgs.length === 0) return 0;
+
+    const galleryRegex = new RegExp(
+      `data-gallery="${escapeRegex(prefix)}[^"]*"`, 'g'
     );
-    html = html.replace(srcRegex, `<img src="${images[0]}"`);
 
-    // Update gallery indicator text
-    const countText = images.length > 1
-      ? `${images.length} Photos`
-      : 'View Photos';
+    if (galleryRegex.test(html)) {
+      galleryRegex.lastIndex = 0;
+      html = html.replace(galleryRegex, `data-gallery="${imgs.join(',')}"`);
 
-    // Find the gallery indicator near this folder's data-gallery and update its text
-    const indicatorRegex = new RegExp(
-      `(data-gallery="${images.join(',').replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"[\\s\\S]*?<div class="gallery-indicator">.*?</svg>)\\s*[^<]+</div>`,
-      'g'
-    );
-    html = html.replace(indicatorRegex, `$1 ${countText}</div>`);
+      const srcRegex = new RegExp(
+        `<img src="${escapeRegex(prefix)}/[^"]*"`, 'g'
+      );
+      html = html.replace(srcRegex, `<img src="${imgs[0]}"`);
 
-    updated++;
-    console.log(`  ${folder}: ${images.length} image(s)`);
+      updated++;
+      console.log(`  tradition: ${imgs.length} image(s)`);
+    }
   }
+
+  fs.writeFileSync(htmlPath, html, 'utf8');
+  return updated;
 }
 
-fs.writeFileSync(HTML_FILE, html, 'utf8');
-console.log(`\nDone! Updated ${updated} event(s) in events.html`);
+// Process events
+console.log('Events (events.html):');
+const eventsUpdated = updateGalleries(
+  path.join(__dirname, 'events.html'),
+  path.join(__dirname, 'images', 'events'),
+  'images/events'
+);
+
+// Process tradition
+console.log('\nTradition (index.html):');
+const traditionUpdated = updateGalleries(
+  path.join(__dirname, 'index.html'),
+  path.join(__dirname, 'images', 'tradition'),
+  'images/tradition'
+);
+
+console.log(`\nDone! Updated ${eventsUpdated + traditionUpdated} gallery(s).`);
