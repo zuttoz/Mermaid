@@ -144,6 +144,11 @@ p {
   padding-top: 0;
 }
 
+.hero-page + .wave-top + .section,
+.hero-page + .section {
+  padding-top: 1rem;
+}
+
 .section-logo {
   display: block;
   height: 230px;
@@ -601,6 +606,10 @@ p {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.hero-page + .wave-divider svg {
+  height: 50px;
 }
 
 .wave-top {
