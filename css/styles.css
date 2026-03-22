@@ -1216,13 +1216,12 @@ p {
 .footer-wave svg {
   display: block;
   width: 100%;
-  height: auto;
+  height: 120px;
 }
 
-/* Ensure content above footer isn't hidden behind the wave */
+/* Ensure the last section before the footer has enough padding for the wave overlay */
 .footer-preceding-section {
-  padding-bottom: 8rem !important;
-  margin-top: -1px;
+  padding-bottom: 10rem !important;
 }
 
 .footer-content {
