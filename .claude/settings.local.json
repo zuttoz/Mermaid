@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv \"kosciuskocountrycommunityfoundation.jpg\" \"kosciusko-county-community-foundation.jpg\")",
+      "Bash(mv \"shopsmartmagazine.png\" \"shop-smart-magazine.png\")"
+    ]
+  }
+}
