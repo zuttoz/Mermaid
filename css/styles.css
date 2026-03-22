@@ -742,6 +742,25 @@ p {
   margin-bottom: 0;
 }
 
+a.feature-card {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.feature-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+  transition: color var(--transition-fast);
+}
+
+.feature-card:hover .feature-link {
+  color: var(--gold);
+}
+
 /* ---------- Event Cards ---------- */
 .events-list {
   display: flex;
