@@ -154,6 +154,8 @@ p {
   height: 230px;
   width: auto;
   margin: -7rem auto 1rem;
+  position: relative;
+  z-index: 0;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
 }
 
@@ -403,6 +405,7 @@ p {
 .hero-page {
   min-height: 0;
   height: 38vh;
+  padding-top: var(--nav-height);
 }
 
 .hero-bg {
@@ -485,6 +488,16 @@ p {
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 1.5rem;
   font-weight: 300;
+}
+
+.hero-perks {
+  display: none;
+  color: var(--gold);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
 }
 
 .hero-badges-row {
@@ -587,16 +600,23 @@ p {
 }
 
 /* Page hero (smaller, for inner pages) */
-.hero-page .hero-content {
-  padding-top: var(--nav-height);
-}
 
 .hero-page .hero-badge {
   display: none;
 }
 
 .hero-page .hero-title {
-  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-size: clamp(1.5rem, 5vw, 3.2rem);
+  margin-bottom: 0.75rem;
+}
+
+.hero-page .hero-subtitle {
+  font-size: clamp(0.9rem, 2.5vw, 1.3rem);
+  margin-bottom: 0;
+}
+
+.hero-page .hero-content {
+  padding: 1rem 1.5rem;
 }
 
 /* ---------- Wave Dividers ---------- */
@@ -605,24 +625,19 @@ p {
   width: 100%;
   overflow: hidden;
   line-height: 0;
+  margin-top: -1px;
+  margin-bottom: -1px;
 }
 
 .wave-divider svg {
   display: block;
   width: 100%;
   height: auto;
+  vertical-align: bottom;
 }
 
 .hero-page + .wave-divider svg {
   height: 50px;
-}
-
-.wave-top {
-  margin-top: -1px;
-}
-
-.wave-bottom {
-  margin-bottom: -1px;
 }
 
 /* ---------- Image Wrapper / Placeholders ---------- */
@@ -2228,25 +2243,51 @@ a.feature-card {
   }
 
   .hero {
-    min-height: 90vh;
+    min-height: auto;
+    padding-top: var(--nav-height);
+    padding-bottom: 1.5rem;
+  }
+
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .hero-content {
+    padding: 1.5rem 1.5rem 0;
+  }
+
+  .hero-badge {
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    padding: 0.4rem 1.2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 8vw, 3rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-starburst {
+    display: none;
+  }
+
+  .hero-perks {
+    display: block;
   }
 
   .hero-presented {
-    bottom: 1.25rem;
-    right: 1.25rem;
-    gap: 0.5rem;
+    display: none;
   }
 
-  .hero-presented-logo {
-    height: 38px;
-  }
-
-  .hero-presented-text {
-    font-size: 0.7rem;
-  }
-
-  .hero-presented-text strong {
-    font-size: 0.78rem;
+  .section-logo {
+    height: 120px;
+    margin: 0 auto 0.75rem;
   }
 
   .hero-page {
