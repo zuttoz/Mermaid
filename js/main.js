@@ -189,4 +189,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ---- Site Config Population ----
+  // Fills in elements with data-config="key" using values from SITE_CONFIG
+  if (typeof SITE_CONFIG !== 'undefined') {
+    document.querySelectorAll('[data-config]').forEach(function(el) {
+      var key = el.getAttribute('data-config');
+      if (SITE_CONFIG[key] !== undefined) {
+        if (el.tagName === 'A' && key === 'email') {
+          el.textContent = SITE_CONFIG[key];
+          el.href = 'mailto:' + SITE_CONFIG[key];
+        } else if (el.tagName === 'A' && key === 'phone') {
+          el.textContent = SITE_CONFIG[key];
+          el.href = SITE_CONFIG.phoneLink || '';
+        } else {
+          el.textContent = SITE_CONFIG[key];
+        }
+      }
+    });
+  }
+
 });

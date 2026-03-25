@@ -76,8 +76,8 @@
       </div>
 
       <div class="theme-callout fade-in">
-        <h3>2026 Theme: The 80's!</h3>
-        <p>Turning 80 means we're throwing it back to the 1980's! Think neon colors, big hair, and all your favorite throwbacks. Keep an eye out for themed events, contests, and decorations all week long.</p>
+        <h3><span data-config="year"></span> Theme: <span data-config="theme"></span></h3>
+        <p data-config="themeDescription"></p>
       </div>
 
       <div class="features-grid stagger-children">
@@ -151,7 +151,7 @@
           <a href="lions-club.html" class="btn btn-navy">About the Lions Club</a>
         </div>
         <div class="fade-in fade-right">
-          <div class="tradition-gallery" data-gallery="images/tradition/tradition_1.png,images/tradition/tradition_2.png,images/tradition/tradition_3.png,images/tradition/tradition_4.png,images/tradition/tradition_5.png,images/tradition/tradition_6.png,images/tradition/tradition_7.png,images/tradition/tradition_8.png,images/tradition/tradition_9.png,images/tradition/tradition_10.png,images/tradition/tradition_11.png,images/tradition/tradition_12.png,images/tradition/tradition_13.png,images/tradition/tradition_14.png,images/tradition/tradition_15.png,images/tradition/tradition_16.png,images/tradition/tradition_17.png,images/tradition/tradition_18.png,images/tradition/tradition_19.png,images/tradition/tradition_20.png,images/tradition/tradition_21.png,images/tradition/tradition_22.png,images/tradition/tradition_23.png,images/tradition/tradition_24.png,images/tradition/tradition_25.png,images/tradition/tradition_26.png,images/tradition/tradition_27.png,images/tradition/tradition_28.png,images/tradition/tradition_29.png,images/tradition/tradition_30.png,images/tradition/tradition_31.png,images/tradition/tradition_32.png">
+          <div class="tradition-gallery" data-gallery-id="tradition">
             <div class="img-wrapper aspect-standard">
               <img src="images/tradition/tradition_1.png" alt="Festival Overview">
               <div class="img-placeholder">
@@ -269,6 +269,8 @@
     </div>
   </div>
 
+  <script src="js/site-config.js"></script>
+  <script src="js/galleries.js"></script>
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>
   <script>

@@ -1,49 +1,83 @@
 # Mermaid Festival Website — Editing Guide
 
-This guide explains how to update content on the Mermaid Festival website. No coding experience needed — just a text editor (like Notepad, VS Code, or even GitHub's web editor).
+No coding experience needed — just a text editor (like Notepad, VS Code, or GitHub's web editor).
 
 ---
 
-## Quick Start
+## Yearly Update Checklist
 
-1. Open any `.html` file in a text editor
-2. Look for `<!-- EDIT: ... -->` comments — these mark editable content
-3. Change the text between the HTML tags
-4. Save the file
-5. If using GitHub Pages, push/commit your changes and the site updates automatically
+At the start of each festival year, open **one file**: `js/site-config.js`
+
+1. Update `year` (e.g. 2027)
+2. Update `edition` (e.g. "81st")
+3. Update `dates` (e.g. "June 16-19, 2027")
+4. Update `theme` and `themeDescription`
+5. Update contact info if it changed
+6. Save and commit
+
+That's it! The navigation, footer, contact page, theme section, and page titles all pull from this file automatically.
+
+Then update page-specific content as needed:
+- `index.html` — Hero text, stats, about section
+- `events.html` — Event cards and schedule image
+- `applications.html` — New PDF forms in the `forms/` folder
+- `sponsors.html` — Sponsor logos and tiers
+- `photos.html` — New gallery photos
+- `lions-club.html` — Officer names and photos
+
+---
+
+## How Photo Galleries Work
+
+Photo galleries are managed in **one file**: `js/galleries.js`
+
+Each event has a list of image filenames:
+
+```js
+"festival-parade": [
+  "parade_1.jpg",
+  "parade_2.jpeg"
+],
+```
+
+**To add a photo:**
+1. Drop the image file into the right folder (e.g. `images/events/festival-parade/`)
+2. Open `js/galleries.js`
+3. Add the filename to that event's list
+4. Save
+
+**To remove a photo:**
+1. Delete the filename from the list in `js/galleries.js`
+2. Optionally delete the image file from the folder
+
+**Tradition photos** (homepage slideshow) work the same way — they're listed under `"tradition"` in the same file, and the images go in `images/tradition/`.
 
 ---
 
 ## How to Update Images
 
-All images live in the `images/` folder, organized by type:
+All images live in the `images/` folder:
 
 ```
 images/
-├── heroes/      ← Full-width banner images (1920x1080 recommended)
-├── events/      ← Event photos (800x600 recommended)
-├── sponsors/    ← Sponsor logos (PNG with transparent background, any size)
-├── gallery/     ← Past event photos (any size, auto-cropped)
-├── officers/    ← Officer headshots (square, 400x400 recommended)
-└── food/        ← Food vendor photos (800x600 recommended)
+├── heroes/      — Full-width banner images (1920x1080 recommended)
+├── events/      — Event photos, organized by event folder
+├── tradition/   — Homepage slideshow photos
+├── sponsors/    — Sponsor logos (PNG with transparent background)
+├── gallery/     — Past event photos
+├── logos/       — Festival and Lions Club logos
+├── club/        — Lions Club photos
+└── hero/        — Main homepage hero image
 ```
 
-**To replace a placeholder image:**
-1. Name your image to match the placeholder filename (e.g., `hero-home.jpg`)
-2. Drop it into the correct folder
-3. The website automatically picks it up — no code changes needed!
+**To replace an image:** name your file the same as the existing one and drop it in.
 
-**To use a different filename:**
-1. Place your image in the appropriate folder
-2. In the HTML file, find the `<img src="images/...">` tag
-3. Change the `src` to match your filename
-4. Update the `alt` text to describe the image
+**To use a different filename:** update the `src="images/..."` path in the HTML file.
 
 **Image tips:**
 - JPG for photos, PNG for logos/graphics with transparency
-- Hero images should be at least 1920px wide for best quality
-- The site automatically handles different image sizes with cropping
-- Compress images before uploading for faster page loads (use tinypng.com)
+- Hero images should be at least 1920px wide
+- Compress images before uploading (use tinypng.com)
 
 ---
 
@@ -51,118 +85,118 @@ images/
 
 ### Home Page (index.html)
 - **Hero section**: Update the title, subtitle, and call-to-action buttons
+- **Theme callout**: Automatically pulls from `site-config.js` — no editing needed here
 - **Feature cards**: Edit the 4 highlight cards (text only)
 - **About section**: Update the festival story text
 - **Stats**: Change the numbers and labels
 - **Parking**: Update parking info and directions
-- **Food**: Update food vendor cards
 
 ### Events Page (events.html)
-- **Schedule overview image**: Replace with your full schedule graphic
+- **Schedule overview image**: Replace `images/events/schedule-overview.jpg`
 - **Event cards**: Each event has a name, description, image, and free/paid badge
 
-**To add a new event**, copy this block and paste it inside the `<div class="events-list">`:
+**To add a new event**, copy this block and paste it inside the events list:
 
 ```html
 <div class="event-card fade-in">
   <div class="event-card-image">
     <div class="img-wrapper">
       <img src="images/events/your-event-image.jpg" alt="Event Name">
-      <div class="img-placeholder">
-        <span>Event Photo</span>
-      </div>
+      <div class="img-placeholder"><span>Event Photo</span></div>
     </div>
   </div>
   <div class="event-card-content">
-    <div class="event-badge free">Free</div>  <!-- Change to: class="event-badge paid" and text to "$ Tickets" for paid events -->
+    <div class="event-badge free">Free</div>
     <h3>Event Name Here</h3>
     <p>Event description goes here.</p>
   </div>
 </div>
 ```
 
+Change `class="event-badge free"` to `class="event-badge paid"` and text to "$ Tickets" for paid events.
+
 ### Applications Page (applications.html)
 - Each form/link is an `app-item` block
-- Change badge class to `pdf` or `form`
-- Update the `href` with actual PDF paths or Google Form URLs
-
-**To add a new application**, copy this block:
-
-```html
-<div class="app-item fade-in">
-  <div class="app-item-info">
-    <h3>Form Name</h3>
-    <p>Short description of what this form is for.</p>
-    <div class="app-item-type pdf">PDF Download</div>  <!-- or class="app-item-type form" for online forms -->
-  </div>
-  <a href="YOUR-LINK-HERE" class="btn btn-primary" target="_blank" rel="noopener">Download</a>
-</div>
-```
+- Update the `href` with PDF paths or Google Form URLs
 
 ### Sponsors Page (sponsors.html)
-- Organized by tier: Gold, Silver, Bronze
+- Organized by tier: Platinum, Gold, Silver, Bronze
 - Each sponsor is a `sponsor-card` with a logo image
 - Move cards between tiers by cutting/pasting
 
 ### Lions Club Page (lions-club.html)
 - **About text**: Update the club description
-- **Community impact cards**: Update the 4 program descriptions
 - **Officers**: Update names, titles, and photos
 - **Members list**: Update the member names
 
 ### Photos Page (photos.html)
-- Organized in sections: Queen of Lakes, Cutie King & Queen, Committee, Festival Memories
+- Organized in sections (Queen of Lakes, Cutie King & Queen, etc.)
 - Each photo is a `gallery-item` block
-- Click any photo to see it full-size (lightbox)
-
-**To add a new photo:**
-
-```html
-<div class="gallery-item fade-in">
-  <div class="img-wrapper">
-    <img src="images/gallery/your-photo.jpg" alt="Description">
-    <div class="img-placeholder"><span>Photo Description</span></div>
-  </div>
-  <div class="gallery-caption">Caption Text Here</div>
-</div>
-```
 
 ### Contact Page (contact.html)
-- Update address, phone, email
-- Update social media links
-- Map automatically shows North Webster, IN
+- Phone and email automatically pull from `site-config.js`
+- Update address and social media links in the HTML if they change
+- Map shows North Webster, IN automatically
 
 ---
 
-## Hosting on GitHub Pages
+## Navigation & Footer
 
-1. Push all files to your GitHub repository
-2. Go to repository **Settings** → **Pages**
-3. Under "Source", select **main** branch and **/ (root)** folder
-4. Click **Save**
-5. Your site will be live at `https://yourusername.github.io/repository-name/`
+The navigation bar and footer are shared across all pages. They live in `js/components.js` and are injected automatically.
 
-To update the site, just push new commits — GitHub Pages rebuilds automatically.
+- **Navigation links** — edit in `components.js` if you need to add/remove a page
+- **Footer text** — automatically uses values from `site-config.js`
+- **Copyright year** — automatically uses the year from `site-config.js`
+
+You should rarely need to touch `components.js`.
+
+---
+
+## File Overview
+
+```
+js/
+├── site-config.js   — UPDATE YEARLY: dates, theme, contact info
+├── galleries.js     — UPDATE AS NEEDED: photo gallery lists
+├── components.js    — Navigation and footer (rarely needs changes)
+└── main.js          — Site functionality (don't touch)
+
+css/
+└── styles.css       — All styling
+
+images/              — All photos, logos, and graphics
+```
 
 ---
 
 ## Colors
 
-The site uses these colors (defined in `css/styles.css`):
-- **Navy Blue**: `#003478` (primary color)
+The site uses these colors (defined at the top of `css/styles.css`):
+- **Navy Blue**: `#003478` (primary)
 - **Dark Navy**: `#001d3d` (footer, dark sections)
 - **Gold**: `#C5972C` (accents, badges)
-- **White/Off-white**: backgrounds
 - **Light Blue**: `#E8F0FE` (alternate section backgrounds)
-- **Light Gold**: `#F5EDD6` (warm alternate sections)
 
-To change colors, open `css/styles.css` and edit the values in the `:root` section at the very top.
+To change colors, edit the values in the `:root` section at the very top of `styles.css`.
+
+---
+
+## Hosting
+
+The site works with any static hosting. Recommended: **Netlify** or **Cloudflare Pages**.
+
+1. Connect your GitHub repository
+2. Set your custom domain in the hosting dashboard
+3. Point your domain's DNS to the host
+4. Every time you push changes to GitHub, the site updates automatically
+
+You can also test locally by opening any `.html` file directly in a browser.
 
 ---
 
 ## Tips
 
-- Always test changes locally before pushing (just open the HTML file in a browser)
+- Always test changes locally before pushing (open the HTML file in a browser)
 - Keep image file sizes under 500KB for fast loading
 - The site is fully responsive — test on both desktop and mobile
 - When in doubt, copy an existing element and modify it rather than writing from scratch

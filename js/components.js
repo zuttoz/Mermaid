@@ -1,10 +1,15 @@
 /* ============================================
-   MERMAID FESTIVAL 2026 — SHARED COMPONENTS
+   MERMAID FESTIVAL — SHARED COMPONENTS
    Injects nav & footer so changes only need
    to be made in one place.
+
+   Reads from SITE_CONFIG (js/site-config.js)
+   which must be loaded before this file.
    ============================================ */
 
 (function () {
+
+  var C = typeof SITE_CONFIG !== 'undefined' ? SITE_CONFIG : {};
 
   /* ---------- Navigation ---------- */
   var nav = document.getElementById('nav-placeholder');
@@ -16,7 +21,7 @@
             '<img src="images/logos/mermaid-logo.png" alt="Mermaid Festival Logo" class="logo-img">' +
             '<span class="logo-text-group">' +
               '<span class="logo-text">Mermaid Festival</span>' +
-              '<span class="logo-year">80th Annual &bull; North Webster, IN</span>' +
+              '<span class="logo-year">' + (C.edition || '80th') + ' Annual &bull; North Webster, IN</span>' +
             '</span>' +
           '</a>' +
           '<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">' +
@@ -51,8 +56,8 @@
             '</div>' +
             '<div class="footer-section">' +
               '<h3>Mermaid Festival</h3>' +
-              '<p>80th Annual North Webster Mermaid Festival, proudly hosted by the North Webster Lions Club since 1946.</p>' +
-              '<p>410 W. Washington St, North Webster, IN 46555</p>' +
+              '<p>' + (C.edition || '80th') + ' Annual ' + (C.festivalName || 'North Webster Mermaid Festival') + ', proudly hosted by the ' + (C.orgName || 'North Webster Lions Club') + ' since ' + (C.foundedYear || 1946) + '.</p>' +
+              '<p>' + (C.address || '410 W. Washington St, North Webster, IN 46555') + '</p>' +
             '</div>' +
             '<div class="footer-section">' +
               '<h3>Quick Links</h3>' +
@@ -66,13 +71,13 @@
             '</div>' +
             '<div class="footer-section">' +
               '<h3>Contact</h3>' +
-              '<p>North Webster Lions Club</p>' +
-              '<p>410 W. Washington St, North Webster, IN 46555</p>' +
+              '<p>' + (C.orgName || 'North Webster Lions Club') + '</p>' +
+              '<p>' + (C.address || '410 W. Washington St, North Webster, IN 46555') + '</p>' +
               '<p style="margin-top: 0.5rem;"><a href="contact.html" style="color: var(--gold);">Get in Touch &rarr;</a></p>' +
             '</div>' +
           '</div>' +
           '<div class="footer-bottom">' +
-            '<p>&copy; 2026 North Webster Mermaid Festival. All rights reserved. Hosted by the North Webster Lions Club.</p>' +
+            '<p>&copy; ' + (C.year || 2026) + ' ' + (C.festivalName || 'North Webster Mermaid Festival') + '. All rights reserved. Hosted by the ' + (C.orgName || 'North Webster Lions Club') + '.</p>' +
           '</div>' +
         '</div>' +
       '</footer>' +
