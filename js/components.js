@@ -11,6 +11,15 @@
 
   var C = typeof SITE_CONFIG !== 'undefined' ? SITE_CONFIG : {};
 
+  /* ---------- Favicon ---------- */
+  if (!document.querySelector('link[rel="icon"]')) {
+    var link = document.createElement('link');
+    link.rel = 'icon';
+    link.type = 'image/png';
+    link.href = 'images/logos/mermaid-logo.png';
+    document.head.appendChild(link);
+  }
+
   /* ---------- Navigation ---------- */
   var nav = document.getElementById('nav-placeholder');
   if (nav) {
