@@ -13,7 +13,7 @@
       '<nav class="navbar" id="navbar">' +
         '<div class="nav-container">' +
           '<a href="index.html" class="nav-logo">' +
-            '<img src="images/logos/mermaid-gold.png" alt="Mermaid Festival Logo" class="logo-img">' +
+            '<img src="images/logos/mermaid-logo.png" alt="Mermaid Festival Logo" class="logo-img">' +
             '<span class="logo-text-group">' +
               '<span class="logo-text">Mermaid Festival</span>' +
               '<span class="logo-year">80th Annual &bull; North Webster, IN</span>' +
@@ -47,7 +47,7 @@
         '<div class="footer-content">' +
           '<div class="footer-grid">' +
             '<div class="footer-section footer-logo-section">' +
-              '<img src="images/logos/mermaid-gold.png" alt="Mermaid Festival Logo" class="footer-logo">' +
+              '<img src="images/logos/mermaid-logo.png" alt="Mermaid Festival Logo" class="footer-logo">' +
             '</div>' +
             '<div class="footer-section">' +
               '<h3>Mermaid Festival</h3>' +
