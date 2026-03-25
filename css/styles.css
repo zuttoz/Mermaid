@@ -728,6 +728,27 @@ p {
   font-size: 0.95rem;
 }
 
+/* ---------- Theme Callout ---------- */
+.theme-callout {
+  max-width: 620px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.theme-callout h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.theme-callout p {
+  color: var(--gray-700);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
 /* ---------- Feature Cards (Home) ---------- */
 .features-grid {
   display: grid;
@@ -1690,6 +1711,8 @@ a.feature-card {
 .contact-info-col a {
   color: var(--navy);
   font-weight: 500;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .contact-info-col a:hover {
@@ -2331,6 +2354,11 @@ a.feature-card {
 
   .officers-grid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .contact-info-split {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .map-wrapper {
