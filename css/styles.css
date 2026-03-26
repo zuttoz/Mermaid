@@ -2289,9 +2289,9 @@ a.feature-card {
   }
 
   .hero {
-    min-height: auto;
+    min-height: 100svh;
     padding-top: var(--nav-height);
-    padding-bottom: 1.5rem;
+    padding-bottom: 2rem;
   }
 
   html, body {
