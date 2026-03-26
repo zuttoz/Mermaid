@@ -151,9 +151,9 @@ p {
 
 .section-logo {
   display: block;
-  height: 230px;
+  height: clamp(150px, 16vw, 230px);
   width: auto;
-  margin: -7rem auto 1rem;
+  margin: clamp(-7rem, -5vw, -3rem) auto 1rem;
   position: relative;
   z-index: 0;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
@@ -506,8 +506,8 @@ p {
 
 .hero-starburst {
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: clamp(110px, 10vw, 150px);
+  height: clamp(110px, 10vw, 150px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -516,13 +516,13 @@ p {
 }
 
 .hero-starburst.starburst-left {
-  left: 12%;
+  left: max(1rem, 3%);
   top: 50%;
   transform: translateY(-50%) rotate(-12deg);
 }
 
 .hero-starburst.starburst-right {
-  right: 12%;
+  right: max(1rem, 3%);
   top: 50%;
   transform: translateY(-50%) rotate(12deg);
 }
@@ -538,7 +538,7 @@ p {
   position: relative;
   z-index: 1;
   font-family: var(--font-heading);
-  font-size: 1.08rem;
+  font-size: clamp(0.85rem, 0.9vw, 1.08rem);
   font-weight: 700;
   line-height: 1.2;
   text-transform: uppercase;
@@ -625,14 +625,16 @@ p {
   width: 100%;
   overflow: hidden;
   line-height: 0;
-  margin-top: -1px;
-  margin-bottom: -1px;
+  margin-top: -3px;
+  margin-bottom: -3px;
 }
 
 .wave-divider svg {
   display: block;
-  width: 100%;
+  width: calc(100% + 4px);
+  margin-left: -2px;
   height: auto;
+  min-height: 50px;
   vertical-align: bottom;
 }
 
@@ -2119,7 +2121,7 @@ a.feature-card {
 /* ---------- Responsive ---------- */
 
 /* Tablet */
-@media (max-width: 968px) {
+@media (max-width: 1100px) {
   .nav-toggle {
     display: flex;
   }
@@ -2163,6 +2165,27 @@ a.feature-card {
   .nav-link.active {
     color: var(--gold);
     font-weight: 600;
+  }
+
+  .hero-starburst {
+    display: none;
+  }
+
+  .hero-perks {
+    display: block;
+  }
+
+  .hero-presented {
+    bottom: 1rem;
+    right: 1.5rem;
+  }
+
+  .hero-presented-logo {
+    height: 50px;
+  }
+
+  .hero-presented-text {
+    font-size: 0.85rem;
   }
 
   .event-card {
@@ -2294,14 +2317,6 @@ a.feature-card {
   .hero-subtitle {
     font-size: 1rem;
     margin-bottom: 1rem;
-  }
-
-  .hero-starburst {
-    display: none;
-  }
-
-  .hero-perks {
-    display: block;
   }
 
   .hero-presented {
