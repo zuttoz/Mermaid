@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---- Image Placeholder Fallback ----
   // When an image fails to load, the placeholder behind it shows through
-  document.querySelectorAll('.img-wrapper img').forEach(img => {
+  document.querySelectorAll('.img-wrapper img, .hero-bg-image').forEach(img => {
     img.addEventListener('error', () => {
       img.style.display = 'none';
     });
