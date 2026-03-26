@@ -247,7 +247,8 @@ p {
   left: 0;
   right: 0;
   z-index: 1000;
-  height: var(--nav-height);
+  height: calc(var(--nav-height) + env(safe-area-inset-top));
+  padding-top: env(safe-area-inset-top);
   transition: all var(--transition-med);
   background: rgba(0, 29, 61, 0.95);
   backdrop-filter: blur(12px);
