@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#001d3d">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="description" content="Events at the 80th Annual North Webster Mermaid Festival — Pageants, parades, contests, live entertainment, and more!">
   <title>Events | 2026 North Webster Mermaid Festival</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -381,153 +379,11 @@
   <!-- Footer + Back-to-Top injected by components.js -->
   <div id="footer-placeholder"></div>
 
-  <!-- Lightbox -->
-  <div class="lightbox-overlay" id="lightbox">
-    <div class="lightbox-content">
-      <button class="lightbox-close" id="lightboxClose">&times;</button>
-      <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</button>
-      <img src="" alt="Gallery image" id="lightboxImg">
-      <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</button>
-      <div class="lightbox-counter" id="lightboxCounter"></div>
-    </div>
-  </div>
-
   <script src="js/site-config.js"></script>
   <script src="js/galleries.js"></script>
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>
   <script>
-    // Lightbox gallery
-    (function() {
-      const overlay = document.getElementById('lightbox');
-      const img = document.getElementById('lightboxImg');
-      const counter = document.getElementById('lightboxCounter');
-      const prevBtn = document.getElementById('lightboxPrev');
-      const nextBtn = document.getElementById('lightboxNext');
-      let images = [];
-      let current = 0;
-
-      function open(srcs, index) {
-        images = srcs;
-        current = index || 0;
-        show();
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        prevBtn.style.display = images.length > 1 ? '' : 'none';
-        nextBtn.style.display = images.length > 1 ? '' : 'none';
-        counter.style.display = images.length > 1 ? '' : 'none';
-      }
-
-      function show() {
-        img.src = images[current];
-        counter.textContent = (current + 1) + ' / ' + images.length;
-      }
-
-      function close() {
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-
-      document.getElementById('lightboxClose').addEventListener('click', close);
-      overlay.addEventListener('click', function(e) { if (e.target === overlay) close(); });
-      prevBtn.addEventListener('click', function() { current = (current - 1 + images.length) % images.length; show(); });
-      nextBtn.addEventListener('click', function() { current = (current + 1) % images.length; show(); });
-      document.addEventListener('keydown', function(e) {
-        if (!overlay.classList.contains('active')) return;
-        if (e.key === 'Escape') close();
-        if (e.key === 'ArrowLeft') { current = (current - 1 + images.length) % images.length; show(); }
-        if (e.key === 'ArrowRight') { current = (current + 1) % images.length; show(); }
-      });
-
-      // Attach to all gallery triggers, build indicators, and hover slideshow
-      document.querySelectorAll('[data-gallery]').forEach(function(el) {
-        var srcs = el.getAttribute('data-gallery').split(',');
-        var indicator = el.querySelector('.gallery-indicator');
-        var imgEl = el.querySelector('.img-wrapper img');
-        var hoverIndex = 0;
-        var hoverInterval = null;
-
-        // Build indicator content
-        if (indicator) {
-          var isMultiple = srcs.length > 1;
-          if (isMultiple) indicator.classList.add('has-multiple');
-
-          // Build label + dots
-          var label = srcs.length > 1
-            ? '<span class="gallery-indicator-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> ' + srcs.length + ' Photos &mdash; Click to explore</span>'
-            : '<span class="gallery-indicator-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Photo</span>';
-
-          var dots = '';
-          if (srcs.length > 1) {
-            var dotCount = Math.min(srcs.length, 8);
-            dots = '<span class="gallery-dots">';
-            for (var i = 0; i < dotCount; i++) {
-              dots += '<span class="gallery-dot' + (i === 0 ? ' active' : '') + '"></span>';
-            }
-            if (srcs.length > 8) {
-              dots += '<span class="gallery-dot-more">+</span>';
-            }
-            dots += '</span>';
-          }
-
-          indicator.innerHTML = label + dots;
-        }
-
-        // Hover slideshow for multi-image galleries
-        if (srcs.length > 1 && imgEl) {
-          // Preload all images
-          srcs.forEach(function(s) { var i = new Image(); i.src = s; });
-
-          // Create a second img for crossfade
-          var imgEl2 = document.createElement('img');
-          imgEl2.alt = imgEl.alt;
-          imgEl2.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.6s ease;z-index:1;';
-          imgEl.parentNode.style.position = 'relative';
-          imgEl.parentNode.appendChild(imgEl2);
-
-          var showingSecond = false;
-
-          el.addEventListener('mouseenter', function() {
-            hoverIndex = 0;
-            hoverInterval = setInterval(function() {
-              hoverIndex = (hoverIndex + 1) % srcs.length;
-              if (showingSecond) {
-                imgEl.src = srcs[hoverIndex];
-                imgEl2.style.opacity = '0';
-              } else {
-                imgEl2.src = srcs[hoverIndex];
-                imgEl2.style.opacity = '1';
-              }
-              showingSecond = !showingSecond;
-              // Update dots
-              var allDots = el.querySelectorAll('.gallery-dot');
-              allDots.forEach(function(d, idx) {
-                d.classList.toggle('active', idx === hoverIndex);
-              });
-            }, 2500);
-          });
-
-          el.addEventListener('mouseleave', function() {
-            clearInterval(hoverInterval);
-            hoverInterval = null;
-            hoverIndex = 0;
-            showingSecond = false;
-            imgEl.src = srcs[0];
-            imgEl2.style.opacity = '0';
-            var allDots = el.querySelectorAll('.gallery-dot');
-            allDots.forEach(function(d, idx) {
-              d.classList.toggle('active', idx === 0);
-            });
-          });
-        }
-
-        // Click to open lightbox
-        el.addEventListener('click', function() {
-          open(srcs, 0);
-        });
-      });
-    })();
-
     // Event search + alternating layout
     (function() {
       var input = document.getElementById('eventSearch');
