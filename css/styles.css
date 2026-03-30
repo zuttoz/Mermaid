@@ -626,17 +626,30 @@ p {
   width: 100%;
   overflow: hidden;
   line-height: 0;
-  margin-top: -3px;
-  margin-bottom: -3px;
+  font-size: 0;
 }
 
 .wave-divider svg {
   display: block;
-  width: calc(100% + 4px);
-  margin-left: -2px;
+  width: 100%;
   height: auto;
   min-height: 50px;
-  vertical-align: bottom;
+}
+
+/* Pull adjacent sections into the wave to eliminate subpixel gaps */
+.wave-divider + .section,
+.wave-divider + section {
+  margin-top: -2px;
+  position: relative;
+}
+
+.section + .wave-divider,
+section + .wave-divider {
+  margin-top: -2px;
+}
+
+.hero + .wave-divider {
+  margin-top: -2px;
 }
 
 .hero-page + .wave-divider svg {
@@ -755,7 +768,7 @@ p {
 /* ---------- Feature Cards (Home) ---------- */
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
 
@@ -1914,7 +1927,7 @@ body:has(.lightbox-overlay.active) .back-to-top {
 /* ---------- Stats Section ---------- */
 .stats-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   text-align: center;
 }
@@ -2310,6 +2323,14 @@ body:has(.lightbox-overlay.active) .back-to-top {
   }
 
   .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-row {
     grid-template-columns: repeat(2, 1fr);
   }
 }
