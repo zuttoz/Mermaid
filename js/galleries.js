@@ -89,7 +89,6 @@ var GALLERIES = {
   ],
 
   "power-wheel-race": [
-    "powerwheel_1.jpg",
     "powerwheel_2.jpg",
     "powerwheel_3.jpg",
     "powerwheel_4.jpg",

@@ -652,6 +652,10 @@ section + .wave-divider {
   margin-top: -2px;
 }
 
+/* Full-height hero (home page): no solid color band needed — the wave svg itself
+   fills its top half with navy-dark (continuing the hero) and its bottom half
+   with white (leading into the welcome section). */
+
 .hero-page + .wave-divider svg {
   height: 50px;
 }
@@ -1922,6 +1926,110 @@ body:has(.lightbox-overlay.active) .back-to-top {
   white-space: nowrap;
   padding: 0.6rem 1.5rem;
   font-size: 0.88rem;
+}
+
+/* ---------- Vendor Booth Info ---------- */
+.vendor-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.vendor-info > div {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+}
+
+.vendor-info h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--navy);
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--gold);
+}
+
+.vendor-price-group {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin: 1.25rem 0 0.4rem;
+}
+
+.vendor-price-group:first-of-type {
+  margin-top: 0;
+}
+
+.vendor-price-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vendor-price-list li small {
+  color: var(--gray-500);
+  font-size: 0.82rem;
+  font-weight: 400;
+  margin-left: 0.25rem;
+}
+
+.vendor-price-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed var(--gray-200);
+  color: var(--gray-700);
+  font-size: 0.95rem;
+}
+
+.vendor-price-list li:last-child {
+  border-bottom: none;
+}
+
+.vendor-price {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 1.05rem;
+}
+
+.vendor-contact-name {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0 1.25rem;
+}
+
+.vendor-contact-name span {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--gray-500);
+}
+
+.vendor-contact-line {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+.vendor-contact-line strong {
+  color: var(--navy);
+  margin-right: 0.35rem;
+}
+
+@media (max-width: 720px) {
+  .vendor-info {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------- Stats Section ---------- */
