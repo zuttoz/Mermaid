@@ -37,21 +37,34 @@
   </div>
 
   <!-- ========== EVENT OVERVIEW IMAGE ========== -->
-  <section class="section">
+  <section class="section events-schedule-section">
     <div class="container">
       <div class="section-header fade-in">
         <h2>Schedule at a Glance</h2>
         <p>Here's an overview of what's happening at this year's festival. Scroll down for details on each event!</p>
       </div>
 
-      <!-- EDIT: Replace with a full schedule overview image or infographic -->
-      <div class="fade-in">
-        <div class="img-wrapper aspect-hero" style="max-width: 100%; margin: 0 auto;">
-          <img src="images/events/schedule-overview.jpg" alt="Festival Schedule Overview">
-          <div class="img-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Schedule Overview Image<br>images/events/schedule-overview.jpg<br>(Recommended: full schedule graphic or photo)</span>
+      <div class="schedule-panel fade-in">
+        <div class="gallery-item schedule-overview" title="Click to view full screen">
+          <div class="img-wrapper">
+            <img src="images/events/schedule/schedule-2026.jpg?v=3" alt="80th Mermaid Festival 2026 Schedule of Events">
+            <div class="img-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              <span>2026 Schedule</span>
+            </div>
+            <div class="schedule-zoom-hint">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              Click to enlarge &amp; zoom
+            </div>
           </div>
+        </div>
+
+        <div class="schedule-actions">
+          <button type="button" class="btn schedule-print-btn" id="schedulePrintBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            Print Schedule
+          </button>
+          <span class="schedule-actions-hint">Tip: click the schedule above to enlarge or zoom in.</span>
         </div>
       </div>
     </div>
@@ -427,6 +440,21 @@
         } else {
           countEl.textContent = '';
           noResults.style.display = 'none';
+        }
+      });
+    })();
+
+    // Print Schedule button
+    (function() {
+      var btn = document.getElementById('schedulePrintBtn');
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        var img = document.querySelector('.schedule-overview img');
+        var src = img ? img.src : 'images/events/schedule/schedule-2026.jpg';
+        if (typeof window.printImage === 'function') {
+          window.printImage(src, '80th Mermaid Festival 2026 Schedule');
+        } else {
+          window.open(src, '_blank');
         }
       });
     })();

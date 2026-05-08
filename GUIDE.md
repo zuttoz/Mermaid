@@ -92,7 +92,7 @@ images/
 - **Parking**: Update parking info and directions
 
 ### Events Page (events.html)
-- **Schedule overview image**: Replace `images/events/schedule-overview.jpg`
+- **Schedule overview image**: Replace `images/events/schedule/schedule-2026.jpg` (clicking it opens the lightbox)
 - **Event cards**: Each event has a name, description, image, and free/paid badge
 
 **To add a new event**, copy this block and paste it inside the events list:
