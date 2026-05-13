@@ -138,6 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (img && img.src) {
           lightboxImg.src = img.src;
           lightboxImg.alt = img.alt || '';
+          lightbox.classList.toggle('with-tools', item.classList.contains('schedule-overview'));
           lightbox.classList.add('active');
           document.body.style.overflow = 'hidden';
         }

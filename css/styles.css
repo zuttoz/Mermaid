@@ -1432,6 +1432,9 @@ body:has(.lightbox-overlay.active) .back-to-top {
 }
 .lightbox-overlay #lightboxImg:active { transition: none; }
 
+/* Toolbar (zoom + print) is opt-in — only shown when opener adds .with-tools */
+.lightbox-overlay:not(.with-tools) .lightbox-toolbar { display: none; }
+
 .lightbox-toolbar {
   position: fixed;
   bottom: 1.25rem;

@@ -184,6 +184,7 @@
 
     function open(srcs, idx) {
       images = srcs; current = idx || 0; show();
+      overlay.classList.remove('with-tools'); // photo galleries: no zoom/print toolbar
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
       prevBtn.style.display = images.length > 1 ? '' : 'none';
@@ -211,9 +212,11 @@
       if (e.key === 'Escape') close();
       if (e.key === 'ArrowLeft') { current = (current - 1 + images.length) % images.length; show(); }
       if (e.key === 'ArrowRight') { current = (current + 1) % images.length; show(); }
-      if (e.key === '+' || e.key === '=') { zoomIn(); e.preventDefault(); }
-      if (e.key === '-' || e.key === '_') { zoomOut(); e.preventDefault(); }
-      if (e.key === '0') { resetZoom(); e.preventDefault(); }
+      if (overlay.classList.contains('with-tools')) {
+        if (e.key === '+' || e.key === '=') { zoomIn(); e.preventDefault(); }
+        if (e.key === '-' || e.key === '_') { zoomOut(); e.preventDefault(); }
+        if (e.key === '0') { resetZoom(); e.preventDefault(); }
+      }
     });
 
     /* ---- Toolbar buttons ---- */
@@ -225,9 +228,10 @@
       window.printImage(lbImg.src, lbImg.alt || 'Mermaid Festival');
     });
 
-    /* ---- Wheel zoom ---- */
+    /* ---- Wheel zoom (schedule only) ---- */
     overlay.addEventListener('wheel', function(e) {
       if (!overlay.classList.contains('active')) return;
+      if (!overlay.classList.contains('with-tools')) return;
       e.preventDefault();
       if (e.deltaY < 0) zoomIn(); else zoomOut();
     }, { passive: false });
@@ -265,8 +269,9 @@
     }, { passive: false });
     lbImg.addEventListener('touchend', function() { dragStart = null; });
 
-    /* ---- Double-click to toggle zoom ---- */
+    /* ---- Double-click to toggle zoom (schedule only) ---- */
     lbImg.addEventListener('dblclick', function(e) {
+      if (!overlay.classList.contains('with-tools')) return;
       e.preventDefault();
       if (scale > 1) resetZoom(); else { scale = 2.4; applyTransform(); }
     });
