@@ -2016,6 +2016,30 @@ body:has(.lightbox-overlay.active) .back-to-top {
   border: none;
 }
 
+/* ---------- Video Embed ---------- */
+.video-embed {
+  max-width: 880px;
+  margin: 0 auto 3rem;
+}
+
+.video-embed-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-200);
+  background: var(--navy-dark);
+}
+
+.video-embed-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 /* ---------- Info Callout ---------- */
 .callout {
   background: var(--white);
